@@ -24,7 +24,7 @@ var mostSolditems = require('./mostSolditems');
 
    	     };
    };
-         console.log(SoldProduct);
+        // console.log(SoldProduct);
         return SoldProduct;
 };
 

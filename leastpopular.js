@@ -8,7 +8,7 @@ var mostSolditems = require('./category');
     
     
    	var leastpopularCategory = {};
-   	var min= 328;
+   	var min = 328;
 //using for loop and if statement,i also use literal object (containing key and the value) 
    for( var product in categoryMap) {
 
@@ -24,6 +24,6 @@ var mostSolditems = require('./category');
 
    	     };
    };
-        console.log(leastpopularCategory);
+       // console.log(leastpopularCategory);
         return leastpopularCategory;
 };
