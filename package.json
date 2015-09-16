@@ -17,6 +17,7 @@
     "url": "https://github.com/sisonke/spaza-app/issues"
   },
   "dependencies": {
-    "express": "~4.13.3"
+    "express": "~4.13.3",
+    "express-handlebars": "~2.0.1"
   }
 }
