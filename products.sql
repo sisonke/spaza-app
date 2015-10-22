@@ -18,4 +18,4 @@ INSERT INTO products(product_name, category_id) VALUES('Rose (plastic)',8);
 INSERT INTO products(product_name, category_id) VALUES('Valentine Cards',8);
 
 
--- INSERT INTO products(product_name, category_id) VALUES('AV Products',18);
+
