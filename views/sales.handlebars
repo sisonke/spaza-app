@@ -1,0 +1,39 @@
+<form>
+ <select name="addSales">
+ <option value="sales date"></option>
+</select>
+<input type="sales date"></input>
+
+</form>
+
+
+<table>
+<tr><thead>
+
+<th>sales date</th>
+<th>product name</th>
+<th>price</th>
+<th>no sold</th>
+
+</tr></thead>	
+<tbody>
+	{{#products}}
+<tr>
+	
+<td>{{sales_date}}</td>
+<td>{{product_name}}</td>
+<td>R{{price}}</td>
+<td>{{qty}}</td>
+
+
+
+</tr>
+{{/products}}
+</tbody>
+</table>
+
+<style type="text/css">
+
+
+table{border: dashed ;}
+</style>
