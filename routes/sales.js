@@ -1,7 +1,4 @@
 
-/***
- * A very basic CRUD example using MySQL
- */
 
 exports.show = function (req, res, next) {
 
@@ -21,14 +18,13 @@ exports.show = function (req, res, next) {
 exports.addSales = function(req,res, next) {
 
 	req.getConnection(function(err, connection){
-	    connection.query("insert into sales_table SET ?",function(err, results){
-			if(err)
+	    connection.query('SELECT * FROM products',function(err, products){
+	 		if(err)
 					 return next(err);
 
              res.render('addSales',{
-            		 products : results,	 
-     
-
+            		 products : products,
+            	
              });
 		});
 	});

@@ -47,7 +47,7 @@ app.post('/products/add', products.add);
 app.get('/products/delete/:id', products.delete);
 
 app.get('/sales', sales.show);
-//app.get('/addSales', sales.add);
+app.get('/addSales',sales.addSales);
 
 app.use(errorHandler);
 
