@@ -1,11 +1,6 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Sidebar</title>
-  </head>
 
-<style>
-     body {
+/*below is ul div style*/
+  body {
   font-family: 'Open Sans', sans-serif;
   font-size:14px;
   background-color: CCCCCC;
@@ -75,26 +70,11 @@ height: 65px;
 font-size: 18px;
 line-height: 60px;
 }
+/*above is ul div style*/
 
+table {
+    margin-left: 230px;
+    border: dashed 3px;
+    font-size: 12px;
+}
 
-
-
-
-
-
-
-</style>
-
-
-  <body>
-    <ul class="sidebar">
-      <li class="sidebar-brand"><a href="">Home</a></li>
-      <li><a href="#">Products</a><a href="/List">List</li></a>
-      <li><a href="#">Categories</a></li>
-       <li><a href="#">SoldProducts</a></li>
-      <li><a href="#">Sales</a></li>
-      <li><a href="#">Purchases</a></li>
-      <li><a href="#">Suppliers</a></li>
-      </ul>
-  </body>
-</html>

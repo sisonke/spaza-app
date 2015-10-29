@@ -37,7 +37,11 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
-app.get('/', products.show);
+app.get('/',function(req, res){
+  res.render('home')
+
+});
+//products
 app.get('/products', products.show);
 app.get('/products/edit/:id', products.get);
 app.post('/products/update/:id', products.update);
@@ -45,9 +49,16 @@ app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/products/delete/:id', products.delete);
-
+//sales 
 app.get('/sales', sales.show);
 app.get('/addSales',sales.addSales);
+app.get('/sales/editSales/:id',sales.get);
+app.post('/sales/add',sales.add);
+app.get('/sales/update/:id');
+app.get('/sales/add');
+
+//this should be a post but this is only an illustration of CRUD - not on good practices
+app.get('/sales/delete/:id', sales.delete);
 
 app.use(errorHandler);
 

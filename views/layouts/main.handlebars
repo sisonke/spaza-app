@@ -1,60 +1,23 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Nelisa's App</title>
+  <title>Nelisa's App</title>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/custom.css">
 
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css" href="public/main.css">
-
-
-<style type="text/css">
-body {
-
-	background-color: #0000;
-  }
-
-</style>
 </head>
-
- <body>
-
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Nelisa's App</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="http://0.0.0.0:3000/">Home</a></li>
-        <li><a href="#"><a href="/List">List</a> </a></li>
-        <li><a href="#"><a href="/mostSolditems">Sold</a></a></li> 
-        <li><a href="#"><a href="/category">category</a></a></li>
-        <li><a href="#"><a href="/leastpopCat">leastpopularCategory</a></a></li>
-        <li><a href="#"><a href="/leastpopProd">leastpopularproduct</a></a></li>
-        <li><a href="#"><a href="/Mostpopular">MostSoldProduct</a></a></a></li>
-        <li><a href="#"><a href="/mostcategory">mostsoldcategory</a></a></li>
- 
-
-
-
-      </ul>
-    </div>
+<body>
+  <div class="row">
+    <ul class="sidebar">
+    <li class="sidebar-brand"><a href="http://localhost:3001">Home</a></li>
+  <li><a onclick = "location.href='http://localhost:3001/products'">Products</a>
+  <li><a onclick = "location.href='http://localhost:3001/'">Categories</a></li>
+    <li><a onclick = "location.href='http://localhost:3001/'">SoldProducts</a></li>
+     <li><a onclick = "location.href='http://localhost:3001/sales'">Sales</a></li>
+      <li><a onclick = "location.href='http://localhost:3001/'">Purchases</a></li>
+  <li><a onclick = "location.href='http://localhost:3001/'">Suppliers</a></li>
+    </ul>
   </div>
-</nav>
-
-    {{{body}}}
 
 </body>
-
+{{{body}}}
 </html>
