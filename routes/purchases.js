@@ -1,12 +1,11 @@
 
-
 exports.show = function (req, res, next) {
 
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		connection.query('SELECT product_name,qty,price,sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id', [], function(err, results) {
+		connection.query('SELECT INNER JOIN products ON ', [], function(err, results) {
         if (err) return next(err);
-    		res.render( 'sales', {
+    		res.render( 'purchases', {
 					 // : results.length === 0,
 					products : results,
 					
@@ -63,7 +62,6 @@ exports.get = function(req, res, next){
 			res.render('editSales',
 			{page_title:"Edit Customers - Node.js",
 			 data : rows[0]}
-			
 			 );
 		});
 	});
@@ -78,15 +76,6 @@ exports.update = function(req, res, next){
 			connection.query('UPDATE sales_table SET ? WHERE id = ?', [data,id], function(err, rows){
     			if (err) next(err);
           res.redirect('/sales');
-             editSales = {
-             product_name: input.product_name,
-             price: input.price,
-             qty: input.qty,  
-             sales_date: input.sales_date,
-             product_id: input.product_id
-
-			 }
-
     		});
 
     });

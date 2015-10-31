@@ -48,7 +48,7 @@ exports.get = function(req, res, next){
 	req.getConnection(function(err, connection){
 		connection.query('SELECT * FROM products WHERE id = ?', [id], function(err,rows){
 			if(err) return next(err);
-			res.render('edit',{page_title:"Edit Customers - Node.js", data : rows[0]});
+			res.render('editSales',{page_title:"Edit Customers - Node.js", data : rows[0]});
 		});
 	});
 };

@@ -20,7 +20,7 @@ font-size: 14px;
 font-weight: 400;
 line-height: 1.42857143;
 text-align: center
-background-image: none;
+background-image: Graphic1;
 border: 1px solid transparent;
 border-radius: 4px;
 }
@@ -40,7 +40,7 @@ padding: 20px;
   width:230px;
   height:100%;
   text-align:left;
-  position: absolute;
+  position: fixed;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -72,9 +72,19 @@ line-height: 60px;
 }
 /*above is ul div style*/
 
-table {
-    margin-left: 230px;
-    border: dashed 3px;
+form {
+    margin-left: 220px;
     font-size: 12px;
+    padding: 12px;
 }
 
+.sisonke {
+    width: 100%;
+    padding-right: 10px;
+    margin-left: 230px;
+}
+
+.rows {
+  padding-left: 218px;
+
+}
