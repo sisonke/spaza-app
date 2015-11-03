@@ -6,8 +6,8 @@ var express = require('express'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
     products = require('./routes/products'),
-    sales = require('./routes/sales'),
-    purchases = require('./routes/purchases'),
+    sales = require('./routes/sales');
+  
 
 
 var app = express();
@@ -56,24 +56,12 @@ app.get('/products/delete/:id', products.delete);
 //sales routes
 app.get('/sales', sales.show);
 app.get('/addSales',sales.addSales);
-app.get('/sales/editSales/:id',sales.get);
 app.post('/sales/update/:id',sales.update);
+app.get('/sales/editSales/:id',sales.get);
 app.post('/sales/add/',sales.add);
 
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/sales/delete/:id', sales.delete);
-
-//purchase routes
-app.get('/purchases', purchases.show);
-app.get('/addPurchases', purchases.addPurchases);
-app.get('/purchases/editPurchases/:id', purchases.get);
-app.post('/purchases/update/:id',purchases.update);
-app.post('/purchases/add',purchases.add);
-
-//this should be a post but this is only an illustration of CRUD - not om good practices
-app.get('/purchases/delete/:id',purchases.delete);
-
-
 
 app.use(errorHandler);
 

@@ -23,8 +23,8 @@ exports.showAdd = function(req, res){
   		console.log(results);
   		res.render('add', {
   							categories: results
-  						  });
-		});
+  			});
+		   });
 	});
 	
 }
@@ -35,6 +35,7 @@ exports.add = function (req, res, next) {
 		var input = JSON.parse(JSON.stringify(req.body));
 		var data = {
       		product_name : input.product_name,
+      		category_id : input.category_id
   	};
 		connection.query('insert into products set ?', data, function(err, results) {
   		if (err) return next(err);
@@ -48,7 +49,7 @@ exports.get = function(req, res, next){
 	req.getConnection(function(err, connection){
 		connection.query('SELECT * FROM products WHERE id = ?', [id], function(err,rows){
 			if(err) return next(err);
-			res.render('editSales',{page_title:"Edit Customers - Node.js", data : rows[0]});
+			res.render('edit',{page_title:"Edit Customers - Node.js", data : rows[0]});
 		});
 	});
 };
@@ -69,7 +70,8 @@ exports.update = function(req, res, next){
 exports.delete = function(req, res, next){
 	var id = req.params.id;
 	req.getConnection(function(err, connection){
-		connection.query('DELETE FROM products WHERE id = ?', [id], function(err,rows){
+		connection.query('DELETE FROM products WHERE id = ?', [id], function(err,products){
+			console.log(products);
 			if(err) return next(err);
 			res.redirect('/products');
 		});

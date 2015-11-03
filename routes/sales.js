@@ -4,7 +4,7 @@ exports.show = function (req, res, next) {
 
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		connection.query('SELECT product_name,qty,price,sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id', [], function(err, results) {
+		connection.query('SELECT sales_table.id,product_name,qty,price,sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id', [], function(err, results) {
         if (err) return next(err);
     		res.render( 'sales', {
 					 // : results.length === 0,
@@ -53,12 +53,11 @@ exports.add = function (req, res, next) {
 
 exports.get = function(req, res, next){
 
-	var product_id = req.params.product_id;
+	var product_id = req.params.id;
     var input = JSON.parse(JSON.stringify(req.body));
 
 	req.getConnection(function(err, connection){
-		connection.query('SELECT product_id,qty,product_name FROM sales_table INNER JOIN products ON sales_table.product_id =  products.id', [product_id], function(err,rows){
-			console.log()
+		connection.query('SELECT sales_table.id,product_name,qty,price,sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id WHERE sales_table.id	= ? ', [product_id], function(err,rows){
 			if(err) return next(err);
 			res.render('editSales',
 			{page_title:"Edit Customers - Node.js",
@@ -88,7 +87,6 @@ exports.update = function(req, res, next){
 			 }
 
     		});
-
     });
 };
 

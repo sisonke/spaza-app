@@ -19,14 +19,30 @@
 <td>R{{price}}</td>
 <td>{{qty}}</td>
 
-<td><a href="/sales/edit/{{id}}">Edit</a>
-    <a href="/sales/delete/{{id}}">Delete</a></td>
+<td><a href="/sales/editSales/{{id}}">Edit</a>
+ <a href="/sales/delete/{{id}}">Delete</a></td>
 </tr>
 {{/products}}
 </tbody>
 </table>
 
 
-<div><button onClick ="location.href='addSales'">+addSales</button>
+<div>
+<button onClick ="location.href='addSales'">+addSales</button>
 </div>
+
 </div>
+
+
+
+
+<h1>EditSales</h1>
+
+{{#data}}
+<form action="/sales/update/{{id}}" method="POST">
+	Description: <input type="text" name="product_name" value="{{product_name}}">	
+	<input type="submit">
+</form>
+
+{{/data}}
+
