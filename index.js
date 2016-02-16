@@ -33,10 +33,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-function errorHandler(err, req, res, next) {
-  res.status(500);
-  res.render('error', { error: err });
-}
+// function errorHandler(err, req, res, next) {
+//   res.status(500);
+//   res.render('error', { error: err });
+// }
 
 //setup the handlers
 app.get('/',function(req, res){
@@ -63,7 +63,7 @@ app.post('/sales/add/',sales.add);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/sales/delete/:id', sales.delete);
 
-app.use(errorHandler);
+//app.use(errorHandler);
 
 //configure the port number using and environment number
 var portNumber = process.env.CRUD_PORT_NR || 3001;
