@@ -4,7 +4,7 @@ exports.show = function (req, res, next) {
 
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		connection.query('SELECT sales_table.id,product_name,qty,price,sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id', [], function(err, results) {
+		connection.query('SELECT sales_table.id,product_name,qty,price,DATE_FORMAT(sales_date,"%d %M") AS sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id', [], function(err, results) {
         if (err) return next(err);
     		res.render( 'sales', {
 					 // : results.length === 0,
