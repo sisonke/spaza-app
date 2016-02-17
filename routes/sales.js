@@ -8,7 +8,7 @@ exports.show = function (req, res, next) {
         if (err) return next(err);
     		res.render( 'sales', {
 					 // : results.length === 0,
-					products : results,
+					products : results
 					
     		});
       });

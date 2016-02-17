@@ -54,14 +54,14 @@ app.get('/products/delete/:id', products.delete);
 
 
 //sales routes
-app.get('/Sales', sales.show);
+app.get('/sales', sales.show);
 app.get('/addSales',sales.addSales);
-app.post('/Sales/update/:id',sales.update);
-app.get('/Sales/editSales/:id',sales.get);
-app.post('/Sales/add/',sales.add);
+app.post('/sales/update/:id',sales.update);
+app.get('/sales/editSales/:id',sales.get);
+app.post('/sales/add/',sales.add);
 
 //this should be a post but this is only an illustration of CRUD - not on good practices
-app.get('/Sales/delete/:id', sales.delete);
+app.get('/sales/delete/:id', sales.delete);
 
 //app.use(errorHandler);
 
