@@ -4,6 +4,7 @@
   font-family: 'Open Sans', sans-serif;
   font-size:14px;
   background-color: CCCCCC;
+
 }
 
 .btn-default {
@@ -87,4 +88,8 @@ form {
 .rows {
   padding-left: 218px;
 
+}
+.table {
+    width: 23px;
+    line-height: 45px;
 }

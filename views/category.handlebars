@@ -1,4 +1,34 @@
-<h1>category</h1>
-{{#each product}}
-<h2>{{@key}} -{{this}}</h2>
-{{/each}}
+<h1>Category List</h1>
+<a href="/category/add">Add Category</a>
+
+
+{{#no_products}}
+  <p>No products available yet. Add some above.</p>
+{{/no_products}}
+
+<div class="rows">
+<table border = "8">
+<thead>
+
+ <tr>
+<th>Product Name</th>
+<th>Category</th>
+<th>Edit/Delete</th>
+
+</tr>
+   	</thead>	
+   	<tbody>
+	{{#products}}
+<tr>	
+<td>{{product_name}}</td>
+<td>{{category_name}}</td>
+<td>  <a href="/products/edit/{{id}}">Edit</a>
+  <a href="/products/delete/{{id}}">Delete</a></td>
+</tr>
+{{/products}}
+</tbody>
+</table>
+
+</div>
+
+

@@ -7,6 +7,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     products = require('./routes/products'),
     sales = require('./routes/sales');
+    //categories = require('./routes/categories')
   
 
 
@@ -62,6 +63,23 @@ app.post('/sales/add/',sales.add);
 
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/sales/delete/:id', sales.delete);
+
+// //categories routes
+// app.get('/categories',categories.show);
+// app.get('/addCategory', categories.addCategory);
+// app.ge('/categories/update/:id',categories.update);
+// app.get('/categories/edit categories/:id',categories.get);
+// app.get('/categories/add',categories.add);
+
+
+// //this should be a post but this is only an illustration of CRUD - not on good practices
+// app.get('/categories/delete/:id', categories.delete);
+
+
+
+
+
+
 
 //app.use(errorHandler);
 

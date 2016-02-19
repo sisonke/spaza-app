@@ -1,7 +1,8 @@
-
+<h1>Edit Sales</h1>
+<a href="/addSales">+Add Sales</a>
 
 <div class ="rows">
-<table>
+<table border ="7">
 <tr><thead>
 
 <th>Sales date</th>
@@ -19,24 +20,16 @@
 <td>R{{price}}</td>
 <td>{{qty}}</td>
 
-<td><a href="/sales/editSales/{{id}}">Edit</a>
- <a href="/sales/delete/{{id}}">Delete</a></td>
+<td><a href="/sales/editSales/{{id}}">Edit</a></td>
+ <td><a href="/sales/delete/{{id}}">Delete</a></td>
 </tr>
 {{/products}}
 </tbody>
 </table>
 
 
-<div>
-<button onClick ="location.href='addSales">+addSales</button>
 </div>
 
-</div>
-
-
-
-
-<h1>EditSales</h1>
 
 {{#data}}
 <form action="/sales/update/{{id}}" method="POST">

@@ -1,9 +1,13 @@
-<h1>Edit</h1>
+<h1>Edit Products</h1>
 
 {{#data}}
 <form action="/products/update/{{id}}" method="POST">
-	Description: <input type="text" name="product_name" value="{{product_name}}">	
+	Description: <input type="text" name="product_name" value="{{product_name}}">
+	{{/data}}
+	<select name="category_id">
+	{{#categories}}
+	<option value="{{id}}">{{category_name}}</option>
+	{{/categories}}
+	</select>	
 	<input type="submit">
 </form>
-
-{{/data}}

@@ -8,33 +8,27 @@
 {{/no_products}}
 
 <div class="rows">
-<table>
-<tr><thead>
+<table border = "4">
+<thead>
 
+ <tr>
+<th>Product Name</th>
+<th>Category</th>
+<th>Edit/Delete</th>
 
-<th>product name</th>
-<th>Edit/Del</th>
-
-</tr></thead>	
-<tbody>
+</tr>
+   	</thead>	
+   	<tbody>
 	{{#products}}
-<tr>
-	
-
+<tr>	
 <td>{{product_name}}</td>
+<td>{{category_name}}</td>
 <td>  <a href="/products/edit/{{id}}">Edit</a>
   <a href="/products/delete/{{id}}">Delete</a></td>
-
-
-
-
 </tr>
 {{/products}}
 </tbody>
 </table>
 
+</div>
 
-<div>
-<button type="submit" onclick = "location.href='http://localhost:3001/products/add'" >+add</button> 
-</div>
-</div>
