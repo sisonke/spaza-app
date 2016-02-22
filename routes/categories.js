@@ -4,9 +4,9 @@ exports.show = function (req, res, next) {
 		if (err) return next(err);
 		connection.query('SELECT * from categories', [], function(err, results) {
         if (err) return next(err);
-    		res.render('category', {
-					no_products : results.length === 0,
-					category : results,
+    		res.render('categories', {
+					//no_products : results.length === 0,
+					categories : results,
     		});
       });
 	});
@@ -17,9 +17,9 @@ exports.showAdd = function(req, res){
     connection.query('SELECT * FROM categories',function(err, results) {
   		if (err) return next(err);
   		console.log(results);
-  		res.render('add', {
-  							categories: results
-  			});
+  		res.render('addCategories', {
+  				  categories: results
+  			    });
 		   });
 	});
 	
@@ -30,12 +30,12 @@ exports.add = function (req, res, next) {
 		if (err) return next(err);
 		var input = JSON.parse(JSON.stringify(req.body));
 		var data = {
-      		product_name : input.product_name,
-      		category_id : input.category_id
+      		//product_name : input.product_name,
+      		category_name: input.category_name
   	};
 		connection.query('insert into categories set ?', data, function(err, results) {
   		if (err) return next(err);
-			res.redirect('/category');
+			res.redirect('/categories');
 		});
 	});
 };
@@ -43,9 +43,9 @@ exports.add = function (req, res, next) {
 exports.get = function(req, res, next){
 	var id = req.params.id;
 	req.getConnection(function(err, connection){
-		connection.query('SELECT * FROM category WHERE id = ?', [id], function(err,rows){
+		connection.query('SELECT * FROM categories WHERE id = ?', [id], function(err,rows){
 			if(err) return next(err);
-			res.render('edit',{page_title:"Edit Customers - Node.js", data : rows[0]});
+			res.render('editCategories',{page_title:"Edit Categories - Node.js", data : rows[0]});
 		});
 	});
 };
@@ -55,9 +55,9 @@ exports.update = function(req, res, next){
 	var data = JSON.parse(JSON.stringify(req.body));
   var id = req.params.id;
   req.getConnection(function(err, connection){
-			connection.query('UPDATE category SET ? WHERE id = ?', [data,id], function(err, rows){
+			connection.query('UPDATE categories SET ? WHERE id = ?', [data,id], function(err, rows){
     			if (err) next(err);
-          res.redirect('/category');
+          res.redirect('/categories');
     		});
 
     });
@@ -66,10 +66,10 @@ exports.update = function(req, res, next){
 exports.delete = function(req, res, next){
 	var id = req.params.id;
 	req.getConnection(function(err, connection){
-		connection.query('DELETE FROM category WHERE id = ?', [id], function(err,category){
-			console.log(category);
+		connection.query('DELETE FROM categories WHERE id = ?', [id], function(err,category){
+			//console.log(category);
 			if(err) return next(err);
-			res.redirect('/category');
+			res.redirect('/categories');
 		});
 	});
 };

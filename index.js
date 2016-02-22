@@ -6,8 +6,8 @@ var express = require('express'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
     products = require('./routes/products'),
-    sales = require('./routes/sales');
-    //categories = require('./routes/categories')
+    sales = require('./routes/sales'),
+    categories = require('./routes/categories')
   
 
 
@@ -64,24 +64,25 @@ app.post('/sales/add/',sales.add);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/sales/delete/:id', sales.delete);
 
-// //categories routes
-// app.get('/categories',categories.show);
-// app.get('/addCategory', categories.addCategory);
-// app.ge('/categories/update/:id',categories.update);
-// app.get('/categories/edit categories/:id',categories.get);
-// app.get('/categories/add',categories.add);
+ //categories routes
+ app.get('/categories', categories.show);
+ app.get('/categories/add', categories.showAdd);
+ app.post('/categories/add',categories.add);
+ app.get('/categories/edit/:id',categories.get);
+ app.post('/categories/update/:id',categories.update);
+ 
 
 
-// //this should be a post but this is only an illustration of CRUD - not on good practices
-// app.get('/categories/delete/:id', categories.delete);
-
-
-
-
+  //this should be a post but this is only an illustration of CRUD - not on good practices
+  app.get('/categories/delete/:id', categories.delete);
 
 
 
-//app.use(errorHandler);
+
+
+
+
+app.use(errorHandler);
 
 //configure the port number using and environment number
 var portNumber = process.env.CRUD_PORT_NR || 3001;
