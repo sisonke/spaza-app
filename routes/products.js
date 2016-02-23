@@ -1,13 +1,10 @@
 
-/***
- * A very basic CRUD example using MySQL
- */
-
 exports.show = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
 		connection.query('SELECT  products.id, products.product_name, categories.category_name FROM products INNER JOIN categories ON categories.id = products.category_id ORDER BY category_name', [], function(err, results) {
-        if (err) return next(err);
+//    connection.query
+		    if (err) return next(err);
     		res.render('productList', {
 					no_products : results.length === 0,
 					products : results,
@@ -26,7 +23,7 @@ exports.showAdd = function(req, res){
   			});
 		   });
 	});
-	
+
 }
 
 exports.add = function (req, res, next) {
@@ -76,4 +73,27 @@ exports.delete = function(req, res, next){
 			res.redirect('/products');
 		});
 	});
+};
+
+exports.Mostpopularproduct = function(req ,res, next) {
+ 	req.getConnection(function(err, connection) {
+       connection.query('SELECT SUM(qty) AS qty,product_id,product_name FROM sales_table s INNER JOIN products p ON s.product_id = p.id GROUP BY product_name ORDER BY SUM(qty) DESC LIMIT 0,1',[], function(err, results) {
+ 	    if (err) return next(err);
+    		res.render('Mostpopularproduct', {
+						Mostpopularproduct : results
+
+    	  	});
+      });
+ 	});
+};
+
+exports.leastpopproduct = function(req , res, next) {
+	req.getConnection(function(err, connection){
+		  connection.query('SELECT SUM(qty) AS qty,product_id,product_name FROM sales_table s INNER JOIN products p ON s.product_id = p.id GROUP BY product_name ORDER BY SUM(qty) ASC LIMIT 0,1', [],function(err,results){
+				if(err) return next(err);
+				res.render('leastpopproduct', {
+					leastpopproduct : results
+				});
+			});
+		});
 };

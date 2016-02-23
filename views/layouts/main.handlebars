@@ -1,9 +1,11 @@
 <html>
 <head>
   <title>Nelisa's App</title>
+  <script type="text/javascript" src="/js/jquery-2.2.0.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-  
-  
+  <script type="text/javascript"  src="/js/bootstrap.min.js"></script>
+
+
 
 
 </head>
@@ -13,15 +15,25 @@
 
     <ul class="nav nav-stacked">
       <li class="nav nav-stacked"><a href="/home">Home</a></li>
-          <li><a href = "/products">Products</a>
+      <li><a href = "#" class="dropdown-toggle " data-toggle ="dropdown">Products
+
+       <span class="caret"></span>
+      </a>
+         <ul class="dropdown-menu">
+          <li><a href = "/products">Product List</a></li>
+          <li><a href = "/products/Mostpopularproduct">Most Popular Product</a></li>
+          <li><a href ="/products/leastpopproduct">Least Popular Product</li>
+        </ul>
+
       <li><a href = "/Categories">Categories</a></li>
-      <li><a href= "/SoldProducts">SoldProducts</a></li>
       <li><a href = "/Sales">Sales</a></li>
       <li><a href = "/Purchases">Purchases</a></li>
       <li><a href = "/Suppliers">Suppliers</a></li>
     </ul>
   </div>
 </div>
+
+
 
 </body>
 {{{body}}}
