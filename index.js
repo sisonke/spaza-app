@@ -70,7 +70,7 @@ app.get('/sales/delete/:id', sales.delete);
  //categories routes
  app.get('/categories', categories.show);
  app.get('/categories/add', categories.showAdd);
- app.post('/categories/add',categories.add)
+ app.post('/categories/add',categories.add);
  app.get('/categories/edit/:id',categories.get);
  app.post('/categories/update/:id',categories.update);
 
@@ -81,9 +81,14 @@ app.get('/sales/delete/:id', sales.delete);
 
 //suppliers routes
 app.get('/suppliers',suppliers.show);
+app.get('/suppliers/add', suppliers.showAdd);
+app.post('/suppliers/add', suppliers.add);
+app.get('/suppliers/editSuppliers/:id', suppliers.get);
+app.post('/suppliers/update/:id', suppliers.update);
 
 
-
+//this should be a post but this is only an illustration of CRUD - not on good practices
+app.get('/suppliers/delete/:id', suppliers.delete);
 
 app.use(errorHandler);
 

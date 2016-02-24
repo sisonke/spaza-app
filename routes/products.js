@@ -17,7 +17,7 @@ exports.showAdd = function(req, res){
 	req.getConnection(function(err, connection){
     connection.query('SELECT * FROM categories',function(err, results) {
   		if (err) return next(err);
-  		console.log(results);
+  	//	console.log(results);
   		res.render('add', {
   							categories: results
   			});
@@ -68,7 +68,7 @@ exports.delete = function(req, res, next){
 	var id = req.params.id;
 	req.getConnection(function(err, connection){
 		connection.query('DELETE FROM products WHERE id = ?', [id], function(err,products){
-			console.log(products);
+		//	console.log(products);
 			if(err) return next(err);
 			res.redirect('/products');
 		});
