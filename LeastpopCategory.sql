@@ -1,4 +1,4 @@
-SELECT  categories.category_name,SUM(sales_table.qty)
+SELECT  categories.category_name,SUM(sales_table.qty) AS qty
 FROM sales_table
 INNER JOIN products
 ON sales_table.product_id = products.id

@@ -30,7 +30,7 @@ DROP TABLE sales if exist;
 CREATE TABLE sales_table (
 	id int not null auto_increment,
     price int not null,
-    qty int,  
+    qty int,
     sales_date date ,
     product_id int,
     primary key(id),
@@ -40,14 +40,13 @@ CREATE TABLE sales_table (
 DROP TABLE if exists purchases;
 CREATE TABLE purchases (
     id int not null auto_increment,
-    price decimal,  
+    price decimal,
     sales_date date,
     qty int,
     product_id int,
     supplier_id int,
     primary key(id),
-    foreign key(product_id) references products(id), 
+    foreign key(product_id) references products(id),
     foreign key (supplier_id) references suppliers(id)
-       
-);
 
+);
