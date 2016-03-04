@@ -40,6 +40,7 @@ CREATE TABLE sales_table (
 DROP TABLE if exists purchases;
 CREATE TABLE purchases (
     id int not null auto_increment,
+		product_name char(100),
     price decimal,
     sales_date date,
     qty int,

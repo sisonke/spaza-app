@@ -1,8 +1,8 @@
-<h1>Edit Sales</h1>
+<h1>Add A Sales</h1>
 <a href="/addSales">+Add Sales</a>
 
 <div class ="rows">
-<table border ="7">
+<table border ="1">
 <tr><thead>
 
 <th>Sales date</th>
@@ -10,7 +10,7 @@
 <th>Price</th>
 <th>No sold</th>
 
-</tr></thead>	
+</tr></thead>
 <tbody>
 	{{#products}}
 <tr>
@@ -33,9 +33,8 @@
 
 {{#data}}
 <form action="/sales/update/{{id}}" method="POST">
-	Description: <input type="text" name="product_name" value="{{product_name}}">	
+	Description: <input type="text" name="product_name" value="{{product_name}}">
 	<input type="submit">
 </form>
 
 {{/data}}
-

@@ -84,7 +84,7 @@ app.get('/suppliers',suppliers.show);
 app.get('/suppliers/add', suppliers.showAdd);
 app.post('/suppliers/add', suppliers.add);
 app.get('/suppliers/editSuppliers/:id', suppliers.get);
-app.post('/suppliers/update/:id', suppliers.update);
+app.post('/suppliers/editSuppliers/update/:id', suppliers.update);
 
 
 //this should be a post but this is only an illustration of CRUD - not on good practices

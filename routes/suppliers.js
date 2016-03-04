@@ -29,7 +29,6 @@ exports.add = function (req, res, next) {
 		var input = JSON.parse(JSON.stringify(req.body));
 		var data = {
       		suppliers_name : input.suppliers_name,
-      		//suppliers_id : input.suppliers_id
   	};
 		connection.query('insert into suppliers set ?', data, function(err, results) {
   		if (err) return next(err);
@@ -67,7 +66,6 @@ exports.delete = function(req, res, next){
 	var id = req.params.id;
 	req.getConnection(function(err, connection){
 		connection.query('DELETE FROM suppliers WHERE id = ?', [id], function(err,products){
-		//	console.log(products);
 			if(err) return next(err);
 			res.redirect('/suppliers');
 		});

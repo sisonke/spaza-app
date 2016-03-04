@@ -4,23 +4,23 @@
 
 {{#no_products}}
   <p>No products available yet. Add some above.</p>
-{{/no_products}} 
+{{/no_products}}
 
 <div class="rows">
 <table >
 <thead>
 
  <tr>
-<th>Supplires</th>
-<th>Edit/Delete</th>
+      <th>Supplires</th>
+      <th>Edit/Delete</th>
 
 </tr>
-   	</thead>	
+   	</thead>
    	<tbody>
 	{{#suppliers}}
-<tr>	
+<tr>
 <td>{{suppliers_name}}</td>
-<td>  <a href="/suppliers/edit/{{id}}">Edit</a>
+<td><a href="/suppliers/editSuppliers/{{id}}">Edit</a>
   <a href="/suppliers/delete/{{id}}">Delete</a></td>
 </tr>
 {{/suppliers}}
@@ -28,5 +28,3 @@
 </table>
 
 </div>
-
-
