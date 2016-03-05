@@ -39,15 +39,12 @@ CREATE TABLE sales_table (
 
 DROP TABLE if exists purchases;
 CREATE TABLE purchases (
-    id int not null auto_increment,
-		product_name char(100),
-    price decimal,
-    sales_date date,
-    qty int,
-    product_id int,
-    supplier_id int,
-    primary key(id),
-    foreign key(product_id) references products(id),
-    foreign key (supplier_id) references suppliers(id)
-
+  id int not null auto_increment primary key,
+	product_id int,
+	supplier_id int,
+	purchases_date date,
+	qty int,
+	price decimal,
+	foreign key(product_id) references products(id),
+	foreign key(supplier_id) references suppliers(id)
 );

@@ -8,7 +8,8 @@ var express = require('express'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
     categories = require('./routes/categories'),
-    suppliers = require('./routes/suppliers')
+    suppliers = require('./routes/suppliers'),
+    purchases = require('./routes/purchases')
 
 
 
@@ -89,6 +90,10 @@ app.post('/suppliers/editSuppliers/update/:id', suppliers.update);
 
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/suppliers/delete/:id', suppliers.delete);
+
+//purchases routes
+app.get('/purchases',purchases.show);
+
 
 app.use(errorHandler);
 

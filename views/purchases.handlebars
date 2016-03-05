@@ -1,0 +1,42 @@
+<h1>Add Purchases</h1>
+<a href="/addPurchases">+AddPurchases</a>
+
+<div class ="rows">
+<table border ="1">
+<tr><thead>
+
+<th>product_id</th>
+<th>supplier_id</th>
+<th>purchases_date</th>
+<th>qty</th>
+<th>price</th>
+
+</tr></thead>
+<tbody>
+	{{#purchases}}
+<tr>
+
+<td>{{product_id}}</td>
+<td>{{supplier_id}}</td>
+<td>{{purchases_date}}</td>
+<td>{{qty}}</td>
+<td>{{price}}</td>
+
+<td><a href="/purchases/editPurchases/{{id}}">Edit</a></td>
+ <td><a href="/purchases/delete/{{id}}">Delete</a></td>
+</tr>
+{{/purchases}}
+</tbody>
+</table>
+
+
+</div>
+
+
+{{#data}}
+<form action="/sales/update/{{id}}" method="POST">
+	Description: <input type="text" name="product_name" value="{{product_name}}">
+	<input type="submit">
+</form>
+
+{{/data}}
