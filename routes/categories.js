@@ -95,3 +95,14 @@ exports.LeastpopCategory = function(req ,res, next){
 	  });
 	});
 };
+
+exports.Earnings = function(req, res, next) {
+  req.getConnection(function(err,connection){
+		connection.query('SELECT  categories.category_name,SUM(sales_table.qty * sales_table.price) AS Earnings FROM sales_table INNER JOIN products ON sales_table.product_id = products.id INNER JOIN categories ON products.category_id =  categories.id GROUP BY categories.category_name',[], function(err, results){
+     if(err) return(err);
+		 res.render('Earnings', {
+			  Earnings : results
+	   	 });
+		});
+	});
+};

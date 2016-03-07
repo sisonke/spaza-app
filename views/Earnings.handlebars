@@ -1,0 +1,17 @@
+<h1>Earnings Per Category</h1>
+ <table>
+  <thead>
+   	<tr>
+			<th>category_name</th>
+		  <th>Per Earnings</th>
+		</tr>
+	</thead>
+
+{{#Earnings}}
+		<tr>
+				<td>{{category_name}}</td>
+  				<td>R {{Earnings}}</td>
+		</tr>
+
+{{/Earnings}}
+</table>
