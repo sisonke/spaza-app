@@ -52,10 +52,12 @@ app.get('/products/edit/:id', products.get);
 app.post('/products/update/:id', products.update);
 app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
-//this should be a post but this is only an illustration of CRUD - not on good practices
-app.get('/products/delete/:id', products.delete);
 app.get('/products/Mostpopularproduct', products.Mostpopularproduct);
 app.get('/products/leastpopproduct', products.leastpopproduct);
+//app.get('/products/Productlist', products.Productlist);
+
+//this should be a post but this is only an illustration of CRUD - not on good practices
+app.get('/products/delete/:id', products.delete);
 
 
 //sales routes

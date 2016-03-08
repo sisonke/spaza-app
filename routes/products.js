@@ -97,3 +97,14 @@ exports.leastpopproduct = function(req , res, next) {
 			});
 		});
 };
+exports.showProductlist = function(req, res, next){
+  req.getConnection(function(err, connection){
+		connection.query('SELECT * FROM products', [], function(err, results){
+			if(err) return next(err);
+			res.render('Productlist',{
+				no_products : results.length === 0,
+				products : results,
+			});
+		});
+	});
+};
