@@ -1,25 +1,22 @@
 DROP TABLE categoriesc if exists;
 CREATE TABLE categories (
-	id int not null auto_increment,
+	id int not null auto_increment 	primary key,
 	category_name char(100),
-	primary key(id),
 	CONSTRAINT uc_category_name UNIQUE (category_name)
 );
 
 DROP TABLE suppliers if exists;
 CREATE TABLE suppliers (
-	id int not null auto_increment,
+	id int not null auto_increment primary key,
     suppliers_name char(100),
-    primary key(id)
     CONSTRAINT uc_suppliers_name UNIQUE (suppliers_name)
 );
 
 DROP TABLE products if exist;
 CREATE TABLE products (
-	id int not null auto_increment,
+	id int not null auto_increment   primary key,
     product_name char(100),
     category_id int not null,
-    primary key(id),
     CONSTRAINT uc_product_name  UNIQUE (product_name),
     foreign key (category_id) references categories(id)
 );
@@ -28,12 +25,11 @@ CREATE TABLE products (
 
 DROP TABLE sales if exist;
 CREATE TABLE sales_table (
-	id int not null auto_increment,
+	id int not null auto_increment primary key,
     price int not null,
     qty int,
     sales_date date ,
     product_id int,
-    primary key(id),
     foreign key (product_id) references products(id)
 );
 
@@ -47,4 +43,13 @@ CREATE TABLE purchases (
 	price decimal,
 	foreign key(product_id) references products(id),
 	foreign key(supplier_id) references suppliers(id)
+);
+
+DROP TABLE if exist UserRoles;
+CREATE TABLE UserRoles (
+	 id int not null auto_increment primary key,
+	 username varchar(100),
+	 password varchar(100),
+	 admin_user varchar(100),
+	 general_user  varchar(100)
 );

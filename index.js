@@ -1,4 +1,3 @@
-'use strict';
 
 var express = require('express'),
     exphbs  = require('express-handlebars'),
@@ -9,9 +8,10 @@ var express = require('express'),
     sales = require('./routes/sales'),
     categories = require('./routes/categories'),
     suppliers = require('./routes/suppliers'),
-    purchases = require('./routes/purchases')
-
-
+    purchases = require('./routes/purchases'),
+    login = require('./routes/login'),
+    signUp = require('./routes/signUp'),
+    session = require('express-session')
 
 var app = express();
 
@@ -23,11 +23,16 @@ var dbOptions = {
       database: 'NelisaSpaza'
 };
 
+
 //setup template handlebars as the template engine
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname + '/public'));
+
+// Use the session middleware
+app.use(session({ secret: 'keyboard', cookie: { maxAge: 60000 }, resave:true, saveUninitialized : false}))
+
 
 //setup middleware
 app.use(myConnection(mysql, dbOptions, 'single'));
@@ -36,6 +41,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(function(req, res, next){
+  console.log('in my middleware!');
+  //proceed to the next middleware component
+  next();
+});
+
 function errorHandler(err, req, res, next) {
    res.status(500);
   res.render('error', { error: err });
@@ -43,9 +54,22 @@ function errorHandler(err, req, res, next) {
 
 //setup the handlers
 app.get('/',function(req, res){
-  res.render('home')
+  res.render('signUp',{
+    layout:false,
 
+  });
 });
+//signUp routes
+
+//rs
+('/signUp', signUp.signUp);
+//login routes
+app.post('/login', login.login);
+//home routes
+app.get('/home', function(req, res){
+  res.render('home');
+});
+
 //products routes
 app.get('/products', products.show);
 app.get('/products/edit/:id', products.get);
@@ -71,7 +95,7 @@ app.post('/sales/add/',sales.add);
 app.get('/sales/delete/:id', sales.delete);
 
  //categories routes
- app.get('/categories', categories.show);
+ app.get('/categories',categories.show);
  app.get('/categories/add', categories.showAdd);
  app.post('/categories/add',categories.add);
  app.get('/categories/edit/:id',categories.get);

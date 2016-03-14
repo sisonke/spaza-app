@@ -1,0 +1,58 @@
+body {
+  background-color:#ADCAB8;
+}
+
+.sign-up {
+  width:350px;
+  margin: 80px auto;
+  font-family:Futura, sans-serif;
+  font-size:14x;
+
+}
+
+input::-webkit-input-placeholder {
+  font-family:Futura, sans-serif;
+  font-size:12px;
+}
+
+input[type='text'] {
+  width:320px;
+  height:30px;
+  border:none;
+  padding:5px;
+  margin: 0 0 5px 0;
+}
+
+input[type='url'] {
+  width:320px;
+  height:30px;
+  border:none;
+  padding:5px;
+  margin: 0 0 5px 0;
+}
+
+input[type='email'] {
+  width:320px;
+  height:30px;
+  border:none;
+  padding:5px;
+  margin: 0 0 5px 0;
+}
+
+input[type='submit'] {
+  width:330px;
+  height:40px;
+  border: none;
+  font-family:Futura, sans-serif;
+  font-size:14px;
+  background-color:#6FA287;
+  padding:5px;
+  margin: 0 0 5px 0;
+  color:#fff;
+}
+h1 {
+   text-align: center;;
+   font-size: 43px;
+   font-family: monospace;
+   font-weight: bolder;
+}
