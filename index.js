@@ -54,17 +54,23 @@ function errorHandler(err, req, res, next) {
 
 //setup the handlers
 app.get('/',function(req, res){
-  res.render('signUp',{
+  res.render('login',{
     layout:false,
 
   });
 });
-//signUp routes
 
-//rs
-('/signUp', signUp.signUp);
-//login routes
 app.post('/login', login.login);
+
+
+
+//signUp routes
+app.post('/signup', signUp.signUp);
+app.get('/signup',function(req, res){
+   res.render('signUp', {
+     layout:false,
+   });
+});
 //home routes
 app.get('/home', function(req, res){
   res.render('home');
