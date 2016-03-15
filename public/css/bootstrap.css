@@ -12,6 +12,11 @@ html {
 body {
   margin: 0;
 }
+.rows {
+  media-right:auto;
+  display: inline-block;
+
+}
 article,
 aside,
 details,
@@ -182,6 +187,7 @@ optgroup {
 table {
   border-spacing: 0;
   border-collapse: collapse;
+
 }
 td,
 th {

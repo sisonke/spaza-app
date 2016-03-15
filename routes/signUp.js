@@ -5,7 +5,7 @@ exports.signUp = function (req, res, next) {
 		var data = {
       	username : input.username,
         password :input.password,
-				role:"view"
+				//role:"view"
     	};
 		connection.query('insert into UserRoles set ?', data, function(err, results) {
   		if (err) return next(err);

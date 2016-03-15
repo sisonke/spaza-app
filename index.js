@@ -41,11 +41,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(function(req, res, next){
-  console.log('in my middleware!');
-  //proceed to the next middleware component
-  next();
-});
+// app.use(function(req, res, next){
+//   console.log('in my middleware!');
+//   //proceed to the next middleware component
+//   next();
+// });
 
 function errorHandler(err, req, res, next) {
    res.status(500);

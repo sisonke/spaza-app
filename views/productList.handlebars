@@ -1,6 +1,7 @@
 
-<h1><em>Products</em></h1>
-<a href="/products/add"><em>Add product</em></a>
+
+
+<h1>Products</h1>
 
 
 {{#no_products}}
@@ -8,8 +9,11 @@
 {{/no_products}}
 
 <div class="rows">
-<table border = "1">
-<thead>
+  <a href="/products/add"><em>Add product</em></a>
+
+<table class="table table-bordered">
+
+  <thead>
 
  <tr>
 <th><em>Product Name</em></th>
@@ -17,10 +21,10 @@
 <th>Edit/Delete</th>
 
 </tr>
-   	</thead>	
+   	</thead>
    	<tbody>
 	{{#products}}
-<tr>	
+<tr>
 <td>{{product_name}}</td>
 <td>{{category_name}}</td>
 <td>  <a href="/products/edit/{{id}}">Edit</a>
@@ -30,5 +34,5 @@
 </tbody>
 </table>
 
-</div>
 
+</div>
