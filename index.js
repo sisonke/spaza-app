@@ -71,10 +71,19 @@ app.get('/signup',function(req, res){
      layout:false,
    });
 });
+
+//logOut routes
+app.get('/logout', function (req, res) {
+    req.session.destroy(function () {
+        res.redirect('/');
+    });
+});
+
 //home routes
 app.get('/home', function(req, res){
   res.render('home');
 });
+
 
 //products routes
 app.get('/products', products.show);
