@@ -41,25 +41,19 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// app.use(function(req, res, next){
-//   console.log('in my middleware!');
-//   //proceed to the next middleware component
-//   next();
-// });
 
 function errorHandler(err, req, res, next) {
    res.status(500);
   res.render('error', { error: err });
  }
 
-//setup the handlers
+// //setup the handlers
 app.get('/',function(req, res){
   res.render('login',{
     layout:false,
 
   });
-});
-
+})
 app.post('/login', login.login);
 
 
@@ -74,10 +68,9 @@ app.get('/signup',function(req, res){
 
 //logOut routes
 app.get('/logout', function (req, res) {
-    req.session.destroy(function () {
+delete req.session.user
         res.redirect('/');
     });
-});
 
 //home routes
 app.get('/home', function(req, res){
@@ -85,8 +78,18 @@ app.get('/home', function(req, res){
 });
 
 
+
+var checkUser = function(req, res, next){
+  if (req.session.user){
+    return next();
+  }
+  // the user is not logged in redirect him to the login page
+ res.redirect('/');
+};
+
+
 //products routes
-app.get('/products', products.show);
+app.get('/products',checkUser, products.show);
 app.get('/products/edit/:id', products.get);
 app.post('/products/update/:id', products.update);
 app.get('/products/add', products.showAdd);
@@ -100,7 +103,7 @@ app.get('/products/delete/:id', products.delete);
 
 
 //sales routes
-app.get('/sales', sales.show);
+app.get('/sales',checkUser, sales.show);
 app.get('/addSales',sales.addSales);
 app.post('/sales/update/:id',sales.update);
 app.get('/sales/editSales/:id',sales.get);
@@ -110,7 +113,7 @@ app.post('/sales/add/',sales.add);
 app.get('/sales/delete/:id', sales.delete);
 
  //categories routes
- app.get('/categories',categories.show);
+ app.get('/categories',checkUser,categories.show);
  app.get('/categories/add', categories.showAdd);
  app.post('/categories/add',categories.add);
  app.get('/categories/edit/:id',categories.get);
@@ -123,7 +126,7 @@ app.get('/sales/delete/:id', sales.delete);
   app.get('/categories/Earnings', categories.Earnings);
 
 //suppliers routes
-app.get('/suppliers',suppliers.show);
+app.get('/suppliers',checkUser,suppliers.show);
 app.get('/suppliers/add', suppliers.showAdd);
 app.post('/suppliers/add', suppliers.add);
 app.get('/suppliers/editSuppliers/:id', suppliers.get);
@@ -134,7 +137,7 @@ app.post('/suppliers/editSuppliers/update/:id', suppliers.update);
 app.get('/suppliers/delete/:id', suppliers.delete);
 
 //purchases routes
-app.get('/purchases',purchases.show);
+app.get('/purchases',checkUser, purchases.show);
 app.get('/purchases/add', purchases.addPurchases);
 app.post('/purchases/add', purchases.add);
 // app.get('/purchases/editPurchases/:id',purchases.get);

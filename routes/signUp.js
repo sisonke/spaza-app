@@ -7,9 +7,15 @@ exports.signUp = function (req, res, next) {
         password :input.password,
 				//role:"view"
     	};
-		connection.query('insert into UserRoles set ?', data, function(err, results) {
-  		if (err) return next(err);
-			res.redirect('/');
+		connection.query('insert into UserRoles set ?', data, function(err, data) {
+  		if (err){
+				console.log(err);
+				return res.redirect('/signup')
+			}else {
+				 res.redirect('/');
+
+			}
+
 		});
 	});
 };
