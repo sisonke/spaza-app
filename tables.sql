@@ -50,6 +50,6 @@ CREATE TABLE UserRoles (
 	 id int not null auto_increment primary key,
 	 username varchar(100),
 	 password varchar(100),
-	 admin_user varchar(100),
-	 general_user  varchar(100)
+	 user_roles varchar(100)
+	
 );

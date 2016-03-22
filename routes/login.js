@@ -7,7 +7,7 @@ exports.login = function(req, res, next){
 req.getConnection(function(err, connection){
 
 		connection.query('SELECT * FROM UserRoles WHERE username = ?',username, function(err,users){
-			console.log(users[0]);
+		//	console.log(users[0]);
 			if(users[0] === undefined){
 				res.redirect("/");
 			}
