@@ -72,11 +72,6 @@ delete req.session.user
         res.redirect('/');
     });
 
-//home routes
-app.get('/home', function(req, res){
-  res.render('home');
-});
-
 
 
 var checkUser = function(req, res, next){
@@ -87,6 +82,10 @@ var checkUser = function(req, res, next){
  res.redirect('/');
 };
 
+//home routes
+app.get('/home',checkUser, function(req, res){
+  res.render('home');
+});
 
 //products routes
 app.get('/products',checkUser, products.show);

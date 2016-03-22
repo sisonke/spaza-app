@@ -7,21 +7,27 @@ exports.signUp = function (req, res, next) {
 		var input = JSON.parse(JSON.stringify(req.body));
 		var data = {
       	username : input.username,
-        password :input.password,
-				user_roles: "admin"
+				user_roles: "normal user"
     	};
-			var salt = bcrypt.genSaltSync(10);
-			var hash = bcrypt.hashSync(input.password, salt);
-      data.password = hash;
-		connection.query('insert into UserRoles set ?', data, function(err, data) {
-  		if (err){
-				console.log(err);
-				return res.redirect('/signup')
-			}else {
-				 res.redirect('/');
 
-			}
+			bcrypt.genSalt(10, function(err, salt) {
+     bcrypt.hash(input.password, salt, function(err, hash) {
+         // Store hash in your password DB.
+				 data.password = hash;
+				 	console.log(data.password);
+					connection.query('insert into UserRoles set ?', data, function(err, data) {
+			  		if (err){
+							console.log(err);
+							return res.redirect('/signup')
+						}else {
+							 res.redirect('/');
 
-		});
+						}
+
+					});
+     });
+ });
+
+
 	});
 };
