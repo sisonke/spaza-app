@@ -11,7 +11,8 @@ var express = require('express'),
     purchases = require('./routes/purchases'),
     login = require('./routes/login'),
     signUp = require('./routes/signUp'),
-    session = require('express-session')
+    session = require('express-session'),
+    bcrypt = require('bcrypt')
 
 var app = express();
 
@@ -54,9 +55,8 @@ app.get('/',function(req, res){
 
   });
 })
+//login routes
 app.post('/login', login.login);
-
-
 
 //signUp routes
 app.post('/signup', signUp.signUp);

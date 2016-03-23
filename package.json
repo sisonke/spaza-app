@@ -17,6 +17,7 @@
     "url": "https://github.com/sisonke/spaza-app/issues"
   },
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "express": "~4.13.3",
     "express-handlebars": "~2.0.1",
     "express-session": "^1.13.0"

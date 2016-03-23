@@ -16,7 +16,7 @@ exports.showAdd = function(req, res){
 	req.getConnection(function(err, connection){
     connection.query('SELECT * FROM categories',function(err, results) {
   		if (err) return next(err);
-  		console.log(results);
+  		//console.log(results);
   		res.render('addCategories', {
   				  categories: results
   			    });

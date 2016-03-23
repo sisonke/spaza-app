@@ -14,20 +14,17 @@ exports.signUp = function (req, res, next) {
      bcrypt.hash(input.password, salt, function(err, hash) {
          // Store hash in your password DB.
 				 data.password = hash;
-				 	console.log(data.password);
+				 	//console.log(data.password);
 					connection.query('insert into UserRoles set ?', data, function(err, data) {
 			  		if (err){
-							console.log(err);
-							return res.redirect('/signup')
+							 res.redirect('/signup')
 						}else {
 							 res.redirect('/');
 
-						}
+								}
 
-					});
-     });
- });
-
-
+						});
+     		});
+ 			});
 	});
 };
