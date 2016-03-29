@@ -4,28 +4,28 @@
 
 
 <div class="login">
-<div class="heading">
+  <div class="heading">
 
-     <h1><em>Welcome To Nelisa's Spaza Store </em></h1>
+    <h1><em>Welcome To Nelisa's Spaza Store </em></h1>
 
-     <h2>Sign in</h2>
- <form action="/login" method="post">
+    <h2>Sign in</h2> {{messages.message}}
+    <form action="/login" method="post">
 
-   <div class="input-group input-group-lg">
+      <div class="input-group input-group-lg">
 
 
-     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-     <input type="text" name="username" class="form-control" placeholder="Username or email" required>
-       </div>
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" name="username" class="form-control" placeholder="Username or email" required>
+      </div>
 
-     <div class="input-group input-group-lg">
-       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-       <input type="password" name="password" class="form-control" placeholder="Password"  required>
-     </div>
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+      </div>
 
-     <button type="submit" class="float">Login</button>
+      <button type="submit" class="float">Login</button>
 
-     <p class="signup">Don't have an account? <a href="signup">sign up</a></p>
+      <p class="signup">Don't have an account? <a href="signup">sign up</a></p>
     </form>
- </div>
+  </div>
 </div>
