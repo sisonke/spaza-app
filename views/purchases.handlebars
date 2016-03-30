@@ -1,41 +1,45 @@
 <h1>Add Purchases</h1>
 <a href="/addPurchases">+AddPurchases</a>
 
-<div class ="rows">
-<table class="table table-bordered"><tr><thead>
+<div class="rows">
+	<table class="table table-bordered">
+		<tr>
+			<thead>
 
-<th>Product_id</th>
-<th>Supplier_id</th>
-<th>Purchases_date</th>
-<th>Quantity</th>
-<th>Price</th>
-<th>Edit/Del</th>
-</tr></thead>
-<tbody>
-	{{#purchases}}
-<tr>
+				<th>Product_id</th>
+				<th>Supplier_id</th>
+				<th>Purchases_date</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Edit/Del</th>
+		</tr>
+		</thead>
+		<tbody>
+			{{#purchases}}
+				<tr>
 
-<td>{{product_id}}</td>
-<td>{{supplier_id}}</td>
-<td>{{purchases_date}}</td>
-<td>{{qty}}</td>
-<td>R {{price}}</td>
+					<td>{{product_id}}</td>
+					<td>{{supplier_id}}</td>
+					<td>{{purchases_date}}</td>
+					<td>{{qty}}</td>
+					<td>R {{price}}</td>
 
-<td><a href="/purchases/editPurchases/{{id}}">Edit</a></td>
- <td><a href="/purchases/delete/{{id}}">Delete</a></td>
-</tr>
-{{/purchases}}
-</tbody>
-</table>
+					<td><a href="/purchases/editPurchases/{{id}}">Edit</a></td>
+					<td><a href="/purchases/delete/{{id}}">Delete</a></td>
+				</tr>
+			{{/purchases}}
+		</tbody>
+	</table>
 
 
 </div>
 
 
 {{#data}}
-<form action="/sales/update/{{id}}" method="POST">
-	Description: <input type="text" name="product_name" value="{{product_name}}">
-	<input type="submit">
-</form>
+	<form action="/sales/update/{{id}}" method="POST">
+		Description:
+		<input type="text" name="product_name" value="{{product_name}}">
+		<input type="submit">
+	</form>
 
 {{/data}}

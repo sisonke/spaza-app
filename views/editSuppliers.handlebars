@@ -1,9 +1,10 @@
 <h1>Edit suppliers</h1>
 
 {{#data}}
-<form action="/suppliers/editSuppliers/update/{{id}}" method="POST">
-	Description: <input type="text" name="suppliers_name" value="{{suppliers_name}}">
-	<input type="submit">
-</form>
+	<form action="/suppliers/editSuppliers/update/{{id}}" method="POST">
+		Description:
+		<input type="text" name="suppliers_name" value="{{suppliers_name}}">
+		<input type="submit">
+	</form>
 
 {{/data}}

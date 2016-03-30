@@ -2,10 +2,10 @@
 
 <form action="/sales/add" method="POST">
 	<select name="product_id">
-	{{#products}}
-	<option value="{{id}}">{{product_name}}
-	</option>
-	{{/products}}
+		{{#products}}
+			<option value="{{id}}">{{product_name}}
+			</option>
+		{{/products}}
 	</select>
 
 	<input type="number" name="qty" placeholder="Quantity"></input>

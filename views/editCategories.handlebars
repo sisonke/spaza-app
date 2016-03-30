@@ -1,10 +1,11 @@
 <h1>Edit Categories</h1>
 
 {{#data}}
-<form action="/categories/update/{{id}}" method="POST">
-	Category: <input type="text" name="category_name" value="{{category_name}}">
-	
-		
-	<input type="submit">
-</form>
+	<form action="/categories/update/{{id}}" method="POST">
+		Category:
+		<input type="text" name="category_name" value="{{category_name}}">
+
+
+		<input type="submit">
+	</form>
 {{/data}}

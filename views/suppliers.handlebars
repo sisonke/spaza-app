@@ -12,22 +12,22 @@
 
     <thead>
 
- <tr>
-      <th>Supplires</th>
-      <th>Edit/Delete</th>
+      <tr>
+        <th>Supplires</th>
+        <th>Edit/Delete</th>
 
-</tr>
-   	</thead>
-   	<tbody>
-	{{#suppliers}}
-<tr>
-<td>{{suppliers_name}}</td>
-<td><a href="/suppliers/editSuppliers/{{id}}">Edit</a>
-  <a href="/suppliers/delete/{{id}}">Delete</a></td>
-</tr>
-{{/suppliers}}
-</table>
-</tbody>
-</table>
+      </tr>
+    </thead>
+    <tbody>
+      {{#suppliers}}
+        <tr>
+          <td>{{suppliers_name}}</td>
+          <td><a href="/suppliers/editSuppliers/{{id}}">Edit</a>
+            <a href="/suppliers/delete/{{id}}">Delete</a></td>
+        </tr>
+      {{/suppliers}}
+  </table>
+  </tbody>
+  </table>
 
 </div>

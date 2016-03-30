@@ -1,40 +1,44 @@
 <h1>Add A Sales</h1>
 
-<div class ="rows">
+<div class="rows">
 	<a href="/addSales">+Add Sales</a>
 
-<table class="table table-bordered"><tr><thead>
+	<table class="table table-bordered">
+		<tr>
+			<thead>
 
-<th>Sales date</th>
-<th>Product name</th>
-<th>Price</th>
-<th>No sold</th>
+				<th>Sales date</th>
+				<th>Product name</th>
+				<th>Price</th>
+				<th>No sold</th>
 
-</tr></thead>
-<tbody>
-	{{#products}}
-<tr>
+		</tr>
+		</thead>
+		<tbody>
+			{{#products}}
+				<tr>
 
-<td>{{sales_date}}</td>
-<td>{{product_name}}</td>
-<td>R{{price}}</td>
-<td>{{qty}}</td>
+					<td>{{sales_date}}</td>
+					<td>{{product_name}}</td>
+					<td>R{{price}}</td>
+					<td>{{qty}}</td>
 
-<td><a href="/sales/editSales/{{id}}">Edit</a></td>
- <td><a href="/sales/delete/{{id}}">Delete</a></td>
-</tr>
-{{/products}}
-</tbody>
-</table>
+					<td><a href="/sales/editSales/{{id}}">Edit</a></td>
+					<td><a href="/sales/delete/{{id}}">Delete</a></td>
+				</tr>
+			{{/products}}
+		</tbody>
+	</table>
 
 
 </div>
 
 
 {{#data}}
-<form action="/sales/update/{{id}}" method="POST">
-	Description: <input type="text" name="product_name" value="{{product_name}}">
-	<input type="submit">
-</form>
+	<form action="/sales/update/{{id}}" method="POST">
+		Description:
+		<input type="text" name="product_name" value="{{product_name}}">
+		<input type="submit">
+	</form>
 
 {{/data}}

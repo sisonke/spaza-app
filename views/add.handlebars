@@ -1,14 +1,15 @@
 <div class="sisonke">
-<h1>Add</h1>
+	<h1>Add</h1>
 
-<form action="/products/add" method="POST">
-	product_name: <input type="text" name="product_name" value="{{product_name}}">
-	<select name="category_id">
-	{{#categories}}
-	<option value="{{id}}">{{category_name}}
-	</option>
-	{{/categories}}
-	</select>
-	<input type="submit">
-</form>
+	<form action="/products/add" method="POST">
+		product_name:
+		<input type="text" name="product_name" value="{{product_name}}">
+		<select name="category_id">
+			{{#categories}}
+				<option value="{{id}}">{{category_name}}
+				</option>
+			{{/categories}}
+		</select>
+		<input type="submit">
+	</form>
 </div>
