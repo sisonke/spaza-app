@@ -1,37 +1,37 @@
 <h1>Products</h1>
 
-
-
+<form class="navbar-form navbar-left" role="search" action="/products/search" method="post">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search" name="searchValue">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
 
 {{#no_products}}
   <p>No products available yet. Add some above.</p>
 {{/no_products}}
 
-<div class="rows">
-  <a href="/products/add"><em>Add product</em></a>
 
-  <table class="table table-bordered">
-
+<table>
+  <tr>
     <thead>
 
+
+      <th>product name</th>
+      <th>Edit/Del</th>
+
+  </tr>
+  </thead>
+  <tbody>
+    {{#products}}
       <tr>
-        <th><em>Product Name</em></th>
-        <th><em>Category</em></th>
-        <th>Edit/Delete</th>
+
+
+        <td>{{product_name}}</td>
+        <td> <a href="/products/edit/{{id}}">Edit</a>
+          <a href="/products/delete/{{id}}">Delete</a></td>
 
       </tr>
-    </thead>
-    <tbody>
-      {{#products}}
-        <tr>
-          <td>{{product_name}}</td>
-          <td>{{category_name}}</td>
-          <td> <a href="/products/edit/{{id}}">Edit</a>
-            <a href="/products/delete/{{id}}">Delete</a></td>
-        </tr>
-      {{/products}}
-    </tbody>
-  </table>
-
-
-</div>
+    {{/products}}
+  </tbody>
+</table>

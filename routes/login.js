@@ -10,11 +10,9 @@
 
      connection.query('SELECT * FROM UserRoles WHERE username = ?', username, function(err, users) {
 
-       console.log(users);
+       // console.log(users);
 
        if (users[0] === undefined) {
-         //message : 'Incorrect username.';
-         //layout : true;
 
          req.flash("message", "invalid username!");
          return res.redirect("/");
@@ -24,14 +22,13 @@
          if (pass) {
            // check if user is on my database login
            req.session.user = users[0].username;
-
+           //if the user puts invalid password redirect to home page
            return res.redirect("/home");
          } else {
            req.flash("message", "invalid password");
            return res.render("login", {
              layout: false
            });
-           //message: 'Incorrect password.';
          }
        });
 
