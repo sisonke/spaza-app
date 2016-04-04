@@ -133,7 +133,7 @@ app.post('/sales/add/', sales.add);
 app.get('/sales/delete/:id', sales.delete);
 
 //categories routes
-app.get('/categories/search/:searchValue',checkUser,categories.search);
+app.post('/categories/search',checkUser,categories.search);
 app.get('/categories', checkUser, categories.show);
 app.get('/categories/add', categories.showAdd);
 app.post('/categories/add', categories.add);
