@@ -10,8 +10,6 @@
 
      connection.query('SELECT * FROM UserRoles WHERE username = ?', username, function(err, users) {
 
-       // console.log(users);
-
        if (users[0] === undefined) {
 
          req.flash("message", "invalid username!");
@@ -20,6 +18,7 @@
 
        bcrypt.compare(password, users[0].password, function(err, pass) {
          if (pass) {
+
            // check if user is on my database login
            req.session.user = users[0].username;
            //if the user puts invalid password redirect to home page

@@ -12,14 +12,12 @@ exports.show = function (req, res, next) {
 	});
 };
 
-
 exports.search = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
 		var searchValue = '%' + req.body.searchValue + '%';
 		//console.log(searchValue);
 		connection.query('SELECT * from categories WHERE category_name like ? ',[searchValue], function(err, results) {
-		//	console.log("lof"+JSON.stringify(results));
 			  if (err) return next(err);
     		res.render('search_categories', {
 					categories : results
@@ -27,8 +25,6 @@ exports.search = function (req, res, next) {
       });
 	});
 };
-
-
 
 exports.showAdd = function(req, res){
 	req.getConnection(function(err, connection){
@@ -48,7 +44,6 @@ exports.add = function (req, res, next) {
 		if (err) return next(err);
 		var input = JSON.parse(JSON.stringify(req.body));
 		var data = {
-      		//product_name : input.product_name,
       		category_name: input.category_name
   	};
 		connection.query('insert into categories set ?', data, function(err, results) {

@@ -1,18 +1,18 @@
 <h1>Products</h1>
-
 <form class="navbar-form navbar-left" role="search" action="/products/search" method="post">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search" name="searchValue">
+    <input type="text" class="form-control" placeholder="Search" id ="search" name="searchValue">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+
 
 {{#no_products}}
   <p>No products available yet. Add some above.</p>
 {{/no_products}}
 
 
-<table>
+<table id="products">
   <tr>
     <thead>
 
@@ -35,3 +35,4 @@
     {{/products}}
   </tbody>
 </table>
+<div id="targetDiv"></div>

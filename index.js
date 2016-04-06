@@ -108,7 +108,7 @@ app.get('/home', checkUser, function(req, res) {
 
 //products routes
 //app.get('/products/search/:searchValue',products.search);
-app.post('/products/search', products.search);
+app.get('/products/search/:value', products.search);
 app.get('/products', checkUser, products.show);
 app.get('/products/edit/:id', products.get);
 app.post('/products/update/:id', products.update);
