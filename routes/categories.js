@@ -15,12 +15,13 @@ exports.show = function (req, res, next) {
 exports.search = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		var searchValue = '%' + req.params.searchValue + '%';
+		var Value = '%' + req.params.Value + '%';
 		//console.log(searchValue);
-		connection.query('SELECT * from categories WHERE category_name like ? ',[searchValue], function(err, results) {
+		connection.query('SELECT * from categories WHERE category_name like ? ',[Value], function(err, results) {
 			  if (err) return next(err);
     		res.render('search_categories', {
-					categories : results
+					categories : results,
+					layout : false
 
     		});
       });
