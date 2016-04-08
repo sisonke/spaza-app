@@ -107,7 +107,6 @@ app.get('/home', checkUser, function(req, res) {
 });
 
 //products routes
-//app.get('/products/search/:searchValue',products.search);
 app.get('/products/search/:value', products.search);
 app.get('/products', checkUser, products.show);
 app.get('/products/edit/:id', products.get);
@@ -133,7 +132,7 @@ app.post('/sales/add/', sales.add);
 app.get('/sales/delete/:id', sales.delete);
 
 //categories routes
-app.post('/categories/search',checkUser,categories.search);
+app.get('/categories/search/:categoryValue',checkUser,categories.search);
 app.get('/categories', checkUser, categories.show);
 app.get('/categories/add', categories.showAdd);
 app.post('/categories/add', categories.add);
