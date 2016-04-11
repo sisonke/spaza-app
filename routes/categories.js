@@ -5,7 +5,6 @@ exports.show = function (req, res, next) {
 		connection.query('SELECT * from categories', [], function(err, results) {
         if (err) return next(err);
     		res.render('categories', {
-					//no_products : results.length === 0,
 					categories : results,
     		});
       });
@@ -15,13 +14,12 @@ exports.show = function (req, res, next) {
 exports.search = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		var Value = '%' + req.params.Value + '%';
-		//console.log(searchValue);
+		var Value = '%' + req.body.Value + '%';
+	//	var searchValue = '%' + req.body.searchValue + '%';
 		connection.query('SELECT * from categories WHERE category_name like ? ',[Value], function(err, results) {
 			  if (err) return next(err);
     		res.render('search_categories', {
 					categories : results,
-					layout : false
 
     		});
       });

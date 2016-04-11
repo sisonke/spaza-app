@@ -18,9 +18,7 @@ exports.search = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
 		var searchValue = '%' + req.body.searchValue + '%';
-	//	console.log(searchValue);
 		connection.query('SELECT  products.id, products.product_name as product_name, categories.category_name as category_name FROM products INNER JOIN categories ON categories.id = products.category_id  WHERE product_name like ?', [searchValue], function(err, results) {
-    //   console.log(results);
 				if (err) return next(err);
     		res.render('productList', {
 					products : results,

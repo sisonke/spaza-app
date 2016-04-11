@@ -9,11 +9,29 @@ exports.show = function (req, res, next) {
     		res.render( 'sales', {
 					 // : results.length === 0,
 					products : results
-					
+
     		});
       });
 	});
 };
+
+exports.search = function (req, res, next) {
+
+	req.getConnection(function(err, connection){
+		if (err) return next(err);
+		connection.query('SELECT sales_table.id,product_name,qty,price,DATE_FORMAT(sales_date,"%d _%M_%y") AS sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id ORDER BY sales_table.sales_date DESC', [], function(err, results) {
+        if (err) return next(err);
+    		res.render( 'sales', {
+					 // : results.length === 0,
+					products : results
+
+    		});
+      });
+	});
+};
+
+
+
 
 exports.addSales = function(req,res, next) {
 
@@ -24,7 +42,7 @@ exports.addSales = function(req,res, next) {
 
              res.render('addSales',{
             		 products : products,
-            	
+
              });
 		});
 	});
@@ -41,12 +59,12 @@ exports.add = function (req, res, next) {
      	    sales_date : input.sales_date,
      	    price : input.price
   	};
-   
+
    connection.query('insert into sales_table set ?', data, function(err, results) {
   		if (err) return next(err);
 			res.redirect('/sales');
 		});
-	
+
 	});
 };
 
@@ -62,7 +80,7 @@ exports.get = function(req, res, next){
 			res.render('editSales',
 			{page_title:"Edit Customers - Node.js",
 			 data : rows[0]}
-			
+
 			 );
 		});
 	});
@@ -80,7 +98,7 @@ exports.update = function(req, res, next){
              editSales = {
              product_name: input.product_name,
              price: input.price,
-             qty: input.qty,  
+             qty: input.qty,
              sales_date: input.sales_date,
              product_id: input.product_id
 
