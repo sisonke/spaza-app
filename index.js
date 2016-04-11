@@ -122,7 +122,8 @@ app.get('/products/delete/:id', products.delete);
 
 
 //sales routes
-app.get('/sales', checkUser, sales.show);
+app.post('/sales/search',sales.search);
+app.get('/sales',sales.show);
 app.get('/addSales', sales.addSales);
 app.post('/sales/update/:id', sales.update);
 app.get('/sales/editSales/:id', sales.get);

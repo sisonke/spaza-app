@@ -1,0 +1,43 @@
+<table class="table table-bordered">
+  <tr>
+    <thead>
+
+      <th>Sales date</th>
+      <th>Product name</th>
+      <th>Price</th>
+      <th>No sold</th>
+      <th>Edit/Delete</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+    {{#products}}
+      <tr>
+
+        <td>{{sales_date}}</td>
+        <td>{{product_name}}</td>
+        <td>R{{price}}</td>
+        <td>{{qty}}</td>
+
+        <td><a href="/sales/editSales/{{id}}">Edit</a></td>
+        <td><a href="/sales/delete/{{id}}">Delete</a></td>
+      </tr>
+    {{/products}}
+  </tbody>
+</table>
+
+
+</div>
+
+
+{{#data}}
+  <form action="/sales/update/{{id}}" method="POST">
+    Description:
+    <input type="text" name="product_name" value="{{product_name}}">
+    <input type="submit">
+  </form>
+
+{{/data}}
+
+<a href="/sales"><button>Show All</button></a>
