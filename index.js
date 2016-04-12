@@ -107,7 +107,7 @@ app.get('/home', checkUser, function(req, res) {
 });
 
 //products routes
-app.post('/products/search/:value', products.search);
+app.get('/products/search/:value', products.search);
 app.get('/products', products.show);
 app.get('/products/edit/:id', products.get);
 app.post('/products/update/:id', products.update);
