@@ -11,7 +11,7 @@ $button-background-color: #27AE60;
   padding: 0;
 }
 html {
-  background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed;
+  background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
