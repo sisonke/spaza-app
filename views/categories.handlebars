@@ -23,7 +23,8 @@
 
       <tr>
         <th>Category</th>
-        <th>Edit/Delete</th>
+        <th>Edit</th>
+        <th>Delete</th>
 
       </tr>
     </thead>
@@ -31,8 +32,8 @@
       {{#categories}}
         <tr>
           <td>{{category_name}}</td>
-          <td> <a href="/categories/edit/{{id}}">Edit</a>
-            <a href="/categories/delete/{{id}}">Delete</a></td>
+          <td><a href="/categories/edit/{{id}}"><span class="glyphicon glyphicon-pencil"></span></a><td>
+          <td><a href="/categories/delete/{{id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
       {{/categories}}
     </tbody>
