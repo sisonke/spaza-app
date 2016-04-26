@@ -1,18 +1,24 @@
+<div class="form-group">
+
 <form class="navbar-form navbar-left" role="search" action="/sales/search/" method="post">
-  <div class="form-group">
     <input type="text" class="form-control" placeholder="search" id="search" name="Value">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+<a class="pull-right" href="/addSales">+Add Sales</a>
+<div class="col-md-8">
+  <div class="col-md-8">
 
-<table id="search">
+<table id="search" class="table table-bordered">
   <tr>
     <thead>
 
       <th>Sales date</th>
       <th>Product name</th>
       <th>Price</th>
-      <th>No sold</th>
+      <th>No Of sold</th>
+      <th>Edit</th>
+      <th>Delete</th>
 
   </tr>
   </thead>
@@ -25,17 +31,16 @@
         <td>R{{price}}</td>
         <td>{{qty}}</td>
 
+
         <td><a href="/sales/editSales/{{id}}">Edit</a></td>
         <td><a href="/sales/delete/{{id}}">Delete</a></td>
       </tr>
     {{/products}}
   </tbody>
 </table>
-
-
 </div>
-
-
+</div>
+<!--
 {{#data}}
   <form action="/sales/update/{{id}}" method="POST">
     Description
@@ -43,13 +48,13 @@
     <input type="submit">
   </form>
 
-{{/data}}
+{{/data}} -->
 
 
 
-<h1>Add A Sales</h1>
 
 <div class="rows">
-  <a href="/addSales">+Add Sales</a>
+  <h1>Add A Sales</h1>
+
 
 </div>
