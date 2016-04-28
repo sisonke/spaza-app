@@ -1,11 +1,14 @@
 exports.show = function(req, res, next) {
   req.getConnection(function(err, connection) {
+    var admin = req.session.role==="admin";
+    console.log(admin);
     if (err) return next(err);
     connection.query('SELECT  products.id, products.product_name, categories.category_name FROM products INNER JOIN categories ON categories.id = products.category_id ORDER BY category_name', [], function(err, results) {
       if (err) return next(err);
       res.render('productList', {
         no_products: results.length === 0,
         products: results,
+        admin: admin
       });
     });
   });

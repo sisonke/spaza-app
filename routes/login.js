@@ -21,6 +21,7 @@
 
            // check if user is on my database login
            req.session.user = users[0].username;
+           req.session.role = users[0].user_roles;
            //if the user puts invalid password redirect to home page
            return res.redirect("/home");
          } else {

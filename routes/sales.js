@@ -3,8 +3,9 @@
 exports.show = function (req, res, next) {
 
 	req.getConnection(function(err, connection){
+		var admin = req.session.role === "admin";
 		if (err) return next(err);
-		connection.query('SELECT sales_table.id,product_name,qty,price,DATE_FORMAT(sales_date,"%d _%M_%y") AS sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id ORDER BY sales_table.sales_date ASC', [], function(err, results) {
+		connection.query('SELECT sales_table.id,product_name,qty,price,DATE_FORMAT(sales_date,"%d %M %y") AS sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id ORDER BY sales_table.sales_date ASC', [], function(err, results) {
         if (err) return next(err);
     		res.render( 'sales', {
 					products : results
@@ -19,7 +20,7 @@ exports.search = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
 		var Value = '%' + req.body.Value + '%';
-		connection.query('SELECT sales_table.id,product_name,qty,price,DATE_FORMAT(sales_date,"%d _%M_%y") AS sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id  WHERE product_name like ?', [Value], function(err, results) {
+		connection.query('SELECT sales_table.id,product_name,qty,price,DATE_FORMAT(sales_date,"%d %M 	%y") AS sales_date from sales_table INNER JOIN products ON sales_table.product_id = products.id  WHERE product_name like ?', [Value], function(err, results) {
         if (err) return next(err);
     		res.render( 'search_sales', {
 					products : results

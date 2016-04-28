@@ -17,7 +17,10 @@
     <thead>
 
       <th>product name</th>
-      <th>Edit/Del</th>
+      {{#if admin}}
+      <th>Edit</th>
+      <th>Delete</th>
+      {{/if}}
     </thead>
 
   </tr>
@@ -26,9 +29,10 @@
       <tr>
 
         <td>{{product_name}}</td>
+              {{#if ../admin}}
         <td><a href="/products/edit/{{id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
         <td><a href="/products/delete/{{id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
-
+          {{/if}}
       </tr>
     {{/products}}
   </tbody>

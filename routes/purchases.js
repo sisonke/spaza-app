@@ -2,7 +2,7 @@
 exports.show = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		connection.query('SELECT * from purchases', [], function(err, results) {
+		connection.query('SELECT  * ,DATE_FORMAT(purchases_date,"%d %M %y") AS purchases_date from purchases', [], function(err, results) {
         if (err) return next(err);
     		res.render('purchases', {
 					// : results.length === 0,
@@ -19,11 +19,9 @@ exports.addPurchases = function(req,res, next) {
 					 return next(err);
              res.render('addPurchases',{
             		  purchases: results,
-
              });
 	      	});
  	   });
-
  };
 
  exports.add = function (req, res, next) {
@@ -41,6 +39,5 @@ exports.addPurchases = function(req,res, next) {
    		if (err) return next(err);
  			res.redirect('/purchases');
  		});
-
  	});
  };
