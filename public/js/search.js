@@ -2,7 +2,7 @@
 $(document).ready(function() {
   $("#search").keyup(function() {
     var value = $("#search").val();
-    console.log(value);
+    //console.log(value);
     $.get("/products/search/" + value, function(results) {
       $("#products").html(results);
 
@@ -11,9 +11,9 @@ $(document).ready(function() {
 
         $("#searchValues").keyup(function() {
           var Value = $("#searchValues").val();
-          console.log(Value);
+        //  console.log(Value);
           $.get("/categories/search/" + Value, function(results) {
-            console.log(results);
+            //console.log(results);
             $("#categories").html(results);
           });
         });

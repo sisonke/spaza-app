@@ -26,6 +26,7 @@
   <tbody>
     {{#products}}
       <tr>
+        {{#if admin}}
 
         <td>{{sales_date}}</td>
         <td>{{product_name}}</td>
@@ -34,7 +35,9 @@
 
 
         <td><a href="/sales/editSales/{{id}}">Edit</a></td>
+
         <td><a href="/sales/delete/{{id}}">Delete</a></td>
+        {{/if}}
       </tr>
     {{/products}}
   </tbody>

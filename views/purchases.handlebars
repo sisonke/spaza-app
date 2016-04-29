@@ -25,9 +25,10 @@
 					<td>{{purchases_date}}</td>
 					<td>{{qty}}</td>
 					<td>R {{price}}</td>
-
+					{{#if admin}}
 					<td><a href="/purchases/editPurchases/{{id}}">Edit</a></td>
 					<td><a href="/purchases/delete/{{id}}">Delete</a></td>
+					{{/if}}
 				</tr>
 			{{/purchases}}
 		</tbody>

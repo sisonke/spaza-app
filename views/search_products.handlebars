@@ -5,7 +5,6 @@
       <tr>
         <th><em>Product Name</em></th>
         <th><em>Category</em></th>
-        <th>Edit/Delete</th>
 
       </tr>
     </thead>
@@ -14,8 +13,10 @@
         <tr>
           <td>{{product_name}}</td>
           <td>{{category_name}}</td>
+          {{#if admin}}
           <td> <a href="/products/edit/{{id}}">Edit</a>
             <a href="/products/delete/{{id}}">Delete</a></td>
+            {{/if}}
         </tr>
       {{/products}}
     </tbody>
