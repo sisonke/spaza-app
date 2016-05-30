@@ -18,24 +18,22 @@
       <th>Product name</th>
       <th>Price</th>
       <th>No Of sold</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <!-- <th>Edit</th>
+      <th>Delete</th> -->
 
   </tr>
   </thead>
   <tbody>
     {{#products}}
       <tr>
-        {{#if admin}}
 
         <td>{{sales_date}}</td>
         <td>{{product_name}}</td>
         <td>R{{price}}</td>
         <td>{{qty}}</td>
 
-
+        {{#if ../admin}}
         <td><a href="/sales/editSales/{{id}}">Edit</a></td>
-
         <td><a href="/sales/delete/{{id}}">Delete</a></td>
         {{/if}}
       </tr>

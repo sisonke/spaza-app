@@ -13,9 +13,9 @@
     <thead>
 
       <tr>
-        <th>Supplies</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>suppliers</th>
+        <!-- <th>Edit</th>
+        <th>Delete</th> -->
 
       </tr>
     </thead>
@@ -23,8 +23,10 @@
       {{#suppliers}}
         <tr>
           <td>{{suppliers_name}}</td>
+          {{#if admin}}
           <td><a href="/suppliers/editSuppliers/{{id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
             <td><a href="/suppliers/delete/{{id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+            {{/if}}
         </tr>
       {{/suppliers}}
   </table>

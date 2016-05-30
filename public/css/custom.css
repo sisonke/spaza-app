@@ -20,7 +20,9 @@ html {
 body {
   background: transparent;
   background-image: url("");
-  background: #456;
+  background: #4fc3f7;
+
+;
 }
 body, input, button {
   font-family: 'Source Sans Pro', sans-serif;

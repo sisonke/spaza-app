@@ -11,8 +11,10 @@
     {{#categories}}
       <tr>
         <td>{{category_name}}</td>
+        {{# if admin}}
         <td> <a href="/categories/edit/{{id}}">Edit</a>
           <a href="/categories/delete/{{id}}">Delete</a></td>
+          {{/if}}
       </tr>
     {{/categories}}
   </tbody>

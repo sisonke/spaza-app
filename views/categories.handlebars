@@ -1,17 +1,17 @@
 <div class="col-md-8">
-<h1>Category List</h1>
+  <h1>Category List</h1>
 
-<!-- <form class="navbar-form navbar-left" role="search" action="/categories/search/" method="post"> -->
+  <!-- <form class="navbar-form navbar-left" role="search" action="/categories/search/" method="post"> -->
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="search"  id="searchValues" name="value">
+    <input type="text" class="form-control" placeholder="search" id="searchValues" name="value">
   </div>
   <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-<!-- </form> -->
+  <!-- </form> -->
 
 
-{{#no_products}}
-  <p>No products available yet. Add some above.</p>
-{{/no_products}}
+  {{#no_products}}
+    <p>No products available yet. Add some above.</p>
+  {{/no_products}}
 
 
   <table class="table table-hover" id="categories">
@@ -19,23 +19,25 @@
 
     <div class="rows">
 
-    <thead>
-      <tr>
-        <th>Category</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#categories}}
+      <thead>
         <tr>
-          <td>{{category_name}}</td>
-          <td><a href="/categories/edit/{{id}}"><span class="glyphicon glyphicon-pencil"></span></a><td>
-          <td><a href="/categories/delete/{{id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+          <th>Category</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
-      {{/categories}}
-    </tbody>
+      </thead>
+      <tbody>
+        {{#categories}}
+          <tr>
+            <td>{{category_name}}</td>
+            {{#if admin}}
+            <td><a href="/categories/edit/{{id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a href="/categories/delete/{{id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+             {{/if}}
+          </tr>
+        {{/categories}}
+      </tbody>
   </table>
-</table>
-</div>
+  </table>
+  </div>
 </div>
