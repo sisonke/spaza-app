@@ -12,7 +12,9 @@ var express = require('express'),
   signUp = require('./routes/signUp'),
   session = require('express-session'),
   bcrypt = require('bcrypt'),
-  flash = require('express-flash')
+  flash = require('express-flash'),
+  compression = require('compression')
+
 
 var app = express();
 
