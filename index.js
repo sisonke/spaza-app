@@ -56,6 +56,7 @@ app.use(bodyParser.urlencoded({
   }))
   // parse application/json
 app.use(bodyParser.json())
+app.use(compression())
 
 
 
