@@ -16,6 +16,7 @@ exports.search = function(req, res, next) {
     if (err) return next(err);
     var Value = '%' + req.params.value + '%';
     connection.query('SELECT * from categories WHERE category_name like ? ', [Value], function(err, results) {
+    //  console.log(results);
       if (err) return next(err);
       res.render('search_categories', {
         categories: results,

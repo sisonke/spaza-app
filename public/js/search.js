@@ -13,7 +13,7 @@ $(document).ready(function() {
           var Value = $("#searchValues").val();
         //  console.log(Value);
           $.get("/categories/search/" + Value, function(results) {
-            //console.log(results);
+          console.log(results);
             $("#categories").html(results);
           });
         });
