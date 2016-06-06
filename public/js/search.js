@@ -4,6 +4,7 @@ $(document).ready(function() {
     var value = $("#search").val();
     //console.log(value);
     $.get("/products/search/" + value, function(results) {
+      console.log(results);
       $("#products").html(results);
 
     });
@@ -13,7 +14,7 @@ $(document).ready(function() {
           var Value = $("#searchValues").val();
         //  console.log(Value);
           $.get("/categories/search/" + Value, function(results) {
-          console.log(results);
+          //console.log(results);
             $("#categories").html(results);
           });
         });

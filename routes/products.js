@@ -1,7 +1,7 @@
 exports.show = function(req, res, next) {
   req.getConnection(function(err, connection) {
     var admin = req.session.role==="admin";
-    console.log(admin);
+  //  console.log(admin);
     if (err) return next(err);
     connection.query('SELECT  products.id, products.product_name, categories.category_name FROM products INNER JOIN categories ON categories.id = products.category_id ORDER BY category_name', [], function(err, results) {
       if (err) return next(err);
@@ -19,6 +19,7 @@ exports.search = function(req, res, next) {
     if (err) return next(err);
     var searchValue = '%' + req.params.value + '%';
     connection.query('SELECT  products.id, products.product_name as product_name, categories.category_name as category_name FROM products INNER JOIN categories ON categories.id = products.category_id  WHERE product_name like ?', [searchValue], function(err, results) {
+      console.log(results);
       if (err) return next(err);
       res.render('search_products', {
         products: results,
