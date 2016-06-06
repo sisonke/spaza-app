@@ -177,6 +177,5 @@ app.use(errorHandler);
 var portNumber = process.env.CRUD_PORT_NR || 3007;
 
 //start everything up
-app.listen(portNumber, function() {
-  //console.log('Create, Read, Update, and Delete (CRUD) example server listening on:', portNumber);
-});
+app.listen(portNumber);
+  console.log('Create, Read, Update, and Delete (CRUD) example server listening on:', portNumber);
