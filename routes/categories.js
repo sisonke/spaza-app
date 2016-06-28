@@ -6,6 +6,8 @@ exports.show = function(req, res, next) {
       if (err) return next(err);
       res.render('categories', {
         categories: results,
+        admin: admin
+
       });
     });
   });

@@ -48,11 +48,13 @@ exports.showAdd = function(req, res) {
 
 exports.add = function(req, res, next) {
   req.getConnection(function(err, connection) {
+    var admin = req.session.role==="admin";
     if (err) return next(err);
     var input = JSON.parse(JSON.stringify(req.body));
     var data = {
       product_name: input.product_name,
-      category_id: input.category_id
+      category_id: input.category_id,
+      admin : admin
     };
 
     connection.query('insert into products set ?', data, function(err, results) {
