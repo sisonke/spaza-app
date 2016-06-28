@@ -3,15 +3,18 @@ exports.show = function(req, res, next) {
     var admin = req.session.role==="admin";
   //  console.log(admin);
     if (err) return next(err);
+    connection.query('SELECT * FROM categories', function(err, categories) {
     connection.query('SELECT  products.id, products.product_name, categories.category_name FROM products INNER JOIN categories ON categories.id = products.category_id ORDER BY category_name', [], function(err, results) {
       if (err) return next(err);
       res.render('productList', {
         no_products: results.length === 0,
+        categories : categories,
         products: results,
         admin: admin
       });
     });
   });
+});
 };
 
 exports.search = function(req, res, next) {
@@ -33,6 +36,7 @@ exports.search = function(req, res, next) {
 exports.showAdd = function(req, res) {
   req.getConnection(function(err, connection) {
     connection.query('SELECT * FROM categories', function(err, results) {
+      console.log(results);
       if (err) return next(err);
       res.render('add', {
         categories: results
@@ -50,6 +54,7 @@ exports.add = function(req, res, next) {
       product_name: input.product_name,
       category_id: input.category_id
     };
+
     connection.query('insert into products set ?', data, function(err, results) {
       if (err) return next(err);
       res.redirect('/products');

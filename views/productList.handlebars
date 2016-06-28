@@ -1,3 +1,19 @@
+<div class="sisonke">
+	<h1>Add A Product</h1>
+
+	<form action="/products/add" method="POST">
+		product_name:
+		<input type="text" name="product_name" value="{{product_name}}">
+		<select name="category_id">
+			{{#categories}}
+				<option value="{{id}}">{{category_name}}
+				</option>
+			{{/categories}}
+		</select>
+		<input type="submit">
+	</form>
+</div>
+
 <div class="col-md-8">
 <h1>Products</h1>
 <form class="navbar-form navbar-left" role="search" action="/products/search" method="post">

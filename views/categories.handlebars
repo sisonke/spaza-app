@@ -1,3 +1,15 @@
+<div class="sisonke">
+	<h1>Add A Category</h1>
+
+	<form action="/categories/add" method="POST">
+		Category_Name:
+		<input type="text" name="category_name" value="{{category_name}}">
+
+		<input type="submit">
+	</form>
+</div>
+
+
 <div class="col-md-8">
   <h1>Category List</h1>
 
@@ -5,6 +17,7 @@
   <div class="form-group">
     <input type="text" class="form-control" placeholder="search" id="searchValues" name="value">
   </div>
+</div>
   <!-- <button type="submit" class="btn btn-default">Submit</button> -->
   <!-- </form> -->
 
@@ -17,9 +30,10 @@
   <table class="table table-hover" id="categories">
 
 
-    <div class="rows">
+    <div class ="rows">
 
       <thead>
+
         <tr>
           <th>Category</th>
           <th>Edit</th>
@@ -38,6 +52,4 @@
         {{/categories}}
       </tbody>
   </table>
-  </table>
-  </div>
 </div>
